@@ -6,10 +6,12 @@ services:
       - ./files:/files
     network_mode: "host"
     image: "nginx:alpine"
+    restart: always
   ssh:
     ports:
     - "2222:22"
     image: "macropin/sshd"
+    restart: always
     volumes:
       - ./authorized_keys:/root/.ssh/authorized_keys
       - ./files:/files
